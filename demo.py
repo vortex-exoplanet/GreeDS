@@ -23,5 +23,5 @@ r = 10  # Iteration over PCA-rank
 l = 20  # Iteration per rank
 full_output = False  # If True, return every iterations. Better if you are searching optimized param
 
-res = GreeDS(cube, angles, r=10, l=20, full_output=True)
+res = GreeDS(cube, angles, r=r, l=l, full_output=True)
 write_fits("GreeDS_estimation", res)
