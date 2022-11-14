@@ -17,7 +17,7 @@ from vip_hci.fits import open_fits, write_fits
 
 dir = "your_directory"
 
-cube = open_fits(dir+"your_cube.fits")
+cube = open_fits(dir+"your_cube.fits")#[my_channel] # Must be one channel cube 
 angles = open_fits(dir+"your_PA_angles.fits")
 
 r = 10  # Iteration over PCA-rank
