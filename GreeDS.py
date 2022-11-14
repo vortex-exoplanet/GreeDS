@@ -59,7 +59,7 @@ def circle(shape: tuple, r: float, offset=(0.5, 0.5)):
 
     return 1-M
 
-def GreeDS(cube,angles,r=1,l=10, pup=6, full_output=False):
+def GreeDS(cube,angles,r=1,l=10, r_start=1, pup=6, full_output=1):
     """
 
     Parameters
@@ -95,7 +95,7 @@ def GreeDS(cube,angles,r=1,l=10, pup=6, full_output=False):
     angles = torch.from_numpy(angles)
 
     # Init variables
-    if full_output : iter_frames = torch.zeros((l*r,)+shape)
+    if full_output : iter_frames = torch.zeros((l*(r-r_start)+1,)+shape)
     x_k = torch.zeros(shape)
     
     center: torch.tensor = torch.ones(1, 2)
@@ -145,7 +145,7 @@ def GreeDS(cube,angles,r=1,l=10, pup=6, full_output=False):
             x_k1, xl = GreeDS_iter(x_k,ncomp)
             x_k = x_k1.clone()
             
-            if full_output : iter_frames[(ncomp-1)*l+(ii-1),:,:] = x_k1
+            if full_output : iter_frames[(ncomp-r_start)*l+(ii-1),:,:] = x_k1
             
     if full_output : return iter_frames.numpy()
     else : return x_k.numpy()
