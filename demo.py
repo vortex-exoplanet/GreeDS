@@ -7,6 +7,7 @@ Created on Thu Nov 10 08:43:22 2022
 
 GreeDS algorithm from Pairet etal 2020.
 Basic implemented that works independently from MAYONNAISE.
+Nov 14 : Added r_start to improve results
 Require the dependancy torch and kornia
 
 @author: sand-jrd
